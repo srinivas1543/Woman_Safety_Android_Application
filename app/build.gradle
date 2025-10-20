@@ -1,0 +1,40 @@
+apply plugin: 'com.android.application'
+
+android {
+    namespace "com.example.womensafe"  // <-- Add this line (namespace)
+
+    compileSdkVersion 34
+
+    defaultConfig {
+        applicationId "com.example.womensafe"  // Your application ID
+        minSdkVersion 21                       // Minimum SDK version your app supports
+        targetSdkVersion 34                    // Target SDK version
+        versionCode 1                          // Version code of the app
+        versionName "1.0"                      // Version name of the app
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"  // For instrumented tests
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false                // Disable code shrinking for release build
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    // Android core libraries
+    implementation 'androidx.appcompat:appcompat:1.7.0'                       // Support library for backward compatibility
+    implementation 'androidx.recyclerview:recyclerview:1.3.1'                  // RecyclerView for displaying lists
+    implementation 'androidx.core:core-ktx:1.10.1'                             // Core Kotlin extensions
+    implementation 'com.google.android.material:material:1.10.0'               // Material Design components
+
+    // Google Play Services Location API
+    implementation 'com.google.android.gms:play-services-location:21.0.1'      // Location services for getting user location
+
+    // Optional: Other dependencies you might need for testing or additional functionality
+    testImplementation 'junit:junit:4.13.2'                                    // JUnit for unit tests
+    androidTestImplementation 'androidx.test.ext:junit:1.1.5'                  // Android test support for JUnit
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'     // Espresso for UI testing
+}
